@@ -10,3 +10,18 @@ Thumbs.db
 Material/
 Referencias/
 Output/
+
+# secretos y claves
+*.pem
+*.key
+*.p12
+secrets*
+credentials*
+
+# despliegue y builds regenerables
+.vercel/
+.netlify/
+.wrangler/
+dist/
+build/
+.cache/
