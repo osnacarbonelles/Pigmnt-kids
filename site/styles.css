@@ -4,8 +4,8 @@
    principal; verde, rojo y azul de KIDS solo como acento.
    ========================================================= */
 :root{
-  --paper:#fbf8f2;
-  --paper-2:#f3eee4;
+  --paper:#f7f6f3;
+  --paper-2:#edece8;
   --card:#ffffff;
   --ink:#141414;
   --ink-2:#2b2925;
@@ -36,7 +36,7 @@
   --ease-spring:cubic-bezier(.34,1.4,.64,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:88px;scrollbar-color:#cfc6b6 var(--paper)}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:88px;scrollbar-color:#c9c8c3 var(--paper)}
 body{background:var(--paper);color:var(--ink);font:400 16px/1.55 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 body.is-locked{overflow:hidden}
 img{display:block;max-width:100%;height:auto}
@@ -51,7 +51,7 @@ input{caret-color:var(--sun-deep)}
 :focus-visible{outline:2.5px solid var(--ink);outline-offset:3px;border-radius:10px}
 ::-webkit-scrollbar{width:11px;height:11px}
 ::-webkit-scrollbar-track{background:var(--paper)}
-::-webkit-scrollbar-thumb{background:#d4ccbd;border-radius:99px;border:3px solid var(--paper)}
+::-webkit-scrollbar-thumb{background:#cfcdc8;border-radius:99px;border:3px solid var(--paper)}
 .muted{color:var(--muted);font-weight:400}
 .skip-link{position:fixed;left:16px;top:-60px;z-index:200;background:var(--ink);color:#fff;padding:10px 16px;border-radius:99px;transition:top .2s}
 .skip-link:focus{top:12px}
@@ -103,7 +103,7 @@ input{caret-color:var(--sun-deep)}
    HEADER — barra flotante en cápsula
    ========================================================= */
 .top{position:fixed;inset:0 0 auto;z-index:40;padding:12px var(--gutter) 0;pointer-events:none}
-.top__bar{pointer-events:auto;max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:8px;padding:6px 6px 6px 10px;border-radius:999px;background:rgba(251,248,242,.84);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 0 0 1px var(--line),0 10px 30px -18px rgba(20,20,20,.35)}
+.top__bar{pointer-events:auto;max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:8px;padding:6px 6px 6px 10px;border-radius:999px;background:rgba(247,246,243,.84);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 0 0 1px var(--line),0 10px 30px -18px rgba(20,20,20,.35)}
 .top__logo img{width:44px;height:44px;object-fit:contain;transition:transform .5s var(--ease-spring)}
 .top__logo:hover img{transform:rotate(-12deg)}
 .top__nav{display:flex;gap:2px;margin:0 auto}
@@ -124,7 +124,10 @@ input{caret-color:var(--sun-deep)}
 /* =========================================================
    HERO
    ========================================================= */
-.hero{max-width:var(--maxw);margin:0 auto;min-height:min(100svh,920px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:clamp(24px,5vw,80px);padding:112px var(--gutter) 40px}
+.hero{position:relative;isolation:isolate;max-width:var(--maxw);margin:0 auto;min-height:min(100svh,920px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:clamp(24px,5vw,80px);padding:112px var(--gutter) 40px}
+/* concreto sutil a todo el ancho; se desvanece hacia abajo. Ajusta con --concrete (0 a 1) */
+.hero::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360'%3E%3Cfilter id='g' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .32 0 0 0 0 .34 2.4 0 0 0 -1.02'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='m' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.006 .009' numOctaves='5' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .42 0 0 0 0 .43 1.5 0 0 0 -.68'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E");background-size:360px 360px,900px 900px;opacity:var(--concrete,.6);-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent 100%);mask-image:linear-gradient(to bottom,#000 55%,transparent 100%);pointer-events:none}
+@media (max-width:700px){.hero::before{opacity:calc(var(--concrete,.6) * .7)}}
 .hero__title{font:600 clamp(3.3rem,8.4vw,6rem)/.92 var(--display);letter-spacing:-.035em}
 .hero__title .line{display:block;overflow:hidden;padding:.02em 0 .08em}
 .hero__title .w{display:inline-block}
