@@ -1,8 +1,8 @@
 /* =========================================================
-   CONFIGURACIÓN ÚNICA DE LA TIENDA
+   CONFIGURACIÓN COMERCIAL DE LA TIENDA
    Todo enlace de WhatsApp de la página sale de aquí.
    ========================================================= */
-window.STORE = {
+export const STORE = {
   name: "Pigmento Store Kids",
   // WhatsApp oficial: formato internacional, solo dígitos, sin "+"
   whatsapp: "573125414403",
@@ -13,4 +13,6 @@ window.STORE = {
   addressRef: "Frente al estadio Urdaneta · Neiva, Huila",
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=Calle+3+%237-35+Neiva+Huila",
   currency: "COP",
+  locale: "es-CO",
+  maxQtyPerLine: 10,
 };

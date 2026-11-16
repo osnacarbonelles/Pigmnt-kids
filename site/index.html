@@ -59,8 +59,8 @@
         <img class="kid kid--s" src="assets/logo/kids-s.webp" alt="">
       </div>
     </div>
+    <div class="kids-bar" aria-hidden="true"><i style="--c:var(--k-green)"></i><i style="--c:var(--k-red)"></i><i style="--c:var(--k-blue)"></i><i style="--c:var(--sun)"></i></div>
   </div>
-  <div class="intro__fx" id="introFx"></div>
   <button class="intro__skip" id="skipIntro" type="button">Saltar intro <svg><use href="#i-arrow"/></svg></button>
   <div class="curtain"><i style="--c:var(--k-green)"></i><i style="--c:var(--k-red)"></i><i style="--c:var(--k-blue)"></i><i style="--c:var(--sun)"></i></div>
 </div>
@@ -204,7 +204,7 @@
       <div class="pd__info">
         <p class="pd__cat" id="pdCat"></p>
         <h2 class="pd__name" id="pdName"></h2>
-        <p class="pd__price"><span id="pdPrice"></span> <span class="pd__ref" id="pdRef">Precio de referencia</span></p>
+        <p class="pd__price"><span id="pdPrice"></span> <s class="pd__compare" id="pdCompare" hidden></s> <span class="pd__ref" id="pdRef">Precio de referencia</span></p>
         <p class="pd__desc" id="pdDesc"></p>
 
         <fieldset class="pd__group">
@@ -263,9 +263,7 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="fx-layer" id="fx" aria-hidden="true"></div>
 
-<script src="data/config.js"></script>
-<script src="data/products.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="app.js" defer></script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
