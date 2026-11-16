@@ -1,0 +1,12 @@
+# local / herramientas
+.claude/
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+.env*
+
+# material fuente y referencias (no se publican)
+Material/
+Referencias/
+Output/
