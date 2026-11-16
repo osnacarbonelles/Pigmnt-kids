@@ -1,0 +1,14 @@
+{
+  "name": "pigmnt-kids",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Catálogo web de ropa infantil streetwear de Pigmento Store Kids (Neiva, Colombia) con pedido por WhatsApp.",
+  "keywords": ["catalogo", "ropa-infantil", "streetwear", "whatsapp", "tienda-online", "neiva", "colombia", "sitio-estatico"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/osnacarbonelles/Pigmnt-kids.git"
+  },
+  "scripts": {
+    "dev": "npx --yes http-server@14.1.1 site -p 5173 -c-1"
+  }
+}
