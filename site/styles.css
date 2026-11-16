@@ -158,10 +158,10 @@ input{caret-color:var(--sun-deep)}
 
 /* ---------- cintas cruzadas (negro y amarillo del emblema) ---------- */
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.ticker{position:relative;z-index:2;display:grid;place-items:center;overflow:hidden;padding:clamp(60px,6vw,76px) 0;margin-top:-10px}
+.ticker{--tk-a:7deg;position:relative;z-index:2;display:grid;place-items:center;overflow:hidden;padding:clamp(64px,7vw,100px) 0;margin-top:-10px}
 .ticker__band{grid-area:1/1;width:112%;overflow:hidden;display:flex}
-.ticker__band--sun{background:var(--sun);color:var(--ink);rotate:2.4deg;translate:0 -44px;padding:.7rem 0}
-.ticker__band--ink{background:var(--ink);color:#fff;rotate:-1.6deg;translate:0 30px;padding:.95rem 0;box-shadow:0 18px 36px -22px rgba(0,0,0,.6)}
+.ticker__band--sun{background:var(--sun);color:var(--ink);rotate:var(--tk-a);padding:.7rem 0}
+.ticker__band--ink{background:var(--ink);color:#fff;rotate:calc(var(--tk-a) * -1);padding:.95rem 0;box-shadow:0 18px 36px -22px rgba(0,0,0,.6)}
 .ticker__track{display:flex;flex:none;width:max-content;animation:tk-left 38s linear infinite}
 .ticker__band--sun .ticker__track{animation-name:tk-right;animation-duration:46s;font-size:clamp(.95rem,1.5vw,1.15rem)}
 .ticker__group{display:flex;align-items:center;flex:none;gap:clamp(18px,2.4vw,34px);padding-right:clamp(18px,2.4vw,34px)}
@@ -170,9 +170,10 @@ input{caret-color:var(--sun-deep)}
 .tk-star{flex:none;width:clamp(18px,2.3vw,28px);height:clamp(18px,2.3vw,28px)}
 .ticker__band--sun .tk-star{width:16px;height:16px}
 .c-sun{color:var(--sun)}.c-green{color:#3fcf62}.c-blue{color:#2bb8ee}.c-red{color:#ff4a40}.c-ink{color:var(--ink)}
-/* el ángulo se reduce al ensanchar la pantalla para que las cintas no se pisen */
-@media (min-width:1100px){.ticker__band--sun{rotate:1.6deg}.ticker__band--ink{rotate:-1.1deg}}
-@media (min-width:1500px){.ticker__band--sun{rotate:1deg}.ticker__band--ink{rotate:-.7deg}}
+/* X centrada: el ángulo baja al ensanchar la pantalla para que el cruce se vea parecido en todas */
+@media (min-width:700px){.ticker{--tk-a:5deg}}
+@media (min-width:1100px){.ticker{--tk-a:3.6deg}}
+@media (min-width:1500px){.ticker{--tk-a:2.7deg}}
 .ticker:hover .ticker__track{animation-play-state:paused}
 @keyframes tk-left{to{transform:translateX(-50%)}}
 @keyframes tk-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
