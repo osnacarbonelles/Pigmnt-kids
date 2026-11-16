@@ -3,8 +3,6 @@ import { $, $$, hasGsap, reduced } from "../lib/dom.js";
 import { formatMoney } from "../lib/format.js";
 import { primaryPhoto } from "../catalog/product.js";
 
-const CATEGORY_DOT = { camisetas: "var(--k-blue)", conjuntos: "var(--k-green)", jeans: "var(--k-red)" };
-
 export async function renderCatalog({ repo, store }) {
   const [products, categories] = await Promise.all([repo.listProducts(), repo.listCategories()]);
   const catName = id => categories.find(c => c.id === id)?.singular ?? "";
@@ -19,13 +17,11 @@ export async function renderCatalog({ repo, store }) {
       <button class="card__link" type="button" data-open="${p.id}" aria-label="${p.name}, ${money(p.price)}. Escoger talla">
         <div class="card__media">
           <img src="${ph.srcSm}" srcset="${ph.srcSm} 320w, ${ph.src} 640w" sizes="(max-width:700px) 46vw, (max-width:1040px) 30vw, 290px" alt="" width="640" height="800" loading="lazy" decoding="async">
-          <span class="card__cat" style="--dot:${CATEGORY_DOT[p.category] ?? "var(--ink)"}">${catName(p.category)}</span>
           <span class="card__plus" aria-hidden="true"><svg><use href="#i-plus"/></svg></span>
         </div>
         <div class="card__body">
           <div class="card__row"><h3 class="card__name">${p.name}</h3><span class="card__price">${money(p.price)}</span></div>
-          <p class="card__meta">${p.colors.map(c => `<i style="--s:${c.hex}" title="${c.name}"></i>`).join("")} Tallas ${sizes[0]} a ${sizes.at(-1)}</p>
-          <span class="card__cta">Escoger talla <svg><use href="#i-arrow"/></svg></span>
+          <p class="card__meta">${p.colors.length > 1 ? p.colors.map(c => `<i style="--s:${c.hex}" title="${c.name}"></i>`).join("") : ""}${catName(p.category)} · Tallas ${sizes[0]} a ${sizes.at(-1)}</p>
         </div>
       </button>
     </article>`;
@@ -61,7 +57,6 @@ export async function renderCatalog({ repo, store }) {
 
 /** Aparición suave al hacer scroll. */
 export function initReveals() {
-  $$(".catalog__head, .band, .how__intro, .steps li").forEach(el => el.classList.add("reveal"));
   const els = $$(".reveal");
   if (!("IntersectionObserver" in window)) return els.forEach(el => el.classList.add("is-in"));
   const io = new IntersectionObserver(entries => entries.forEach(en => {

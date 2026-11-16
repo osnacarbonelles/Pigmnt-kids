@@ -136,8 +136,7 @@ input{caret-color:var(--sun-deep)}
 .hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:30px}
 
 .hero__stage{position:relative;aspect-ratio:1/1.02;width:100%;max-width:600px;justify-self:end}
-.hero__emblem{position:absolute;width:52%;right:-4%;top:-7%;animation:slowspin 60s linear infinite}
-@keyframes slowspin{to{rotate:360deg}}
+.hero__emblem{position:absolute;width:52%;right:-4%;top:-7%}
 .hero-shot{position:absolute;display:block;border-radius:var(--r);overflow:hidden;background:var(--paper-2);box-shadow:var(--shadow-2);transition:transform .6s var(--ease)}
 .hero-shot img{width:100%;height:100%;object-fit:cover}
 .hero-shot--main{left:4%;top:4%;width:60%;aspect-ratio:4/5;z-index:2}
@@ -198,8 +197,6 @@ input{caret-color:var(--sun-deep)}
 .card__link{display:block;width:100%;text-align:left;border-radius:var(--r)}
 .card__media{position:relative;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:var(--paper-2)}
 .card__media img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.card__cat{position:absolute;top:10px;left:10px;display:inline-flex;align-items:center;gap:6px;padding:5px 10px 5px 8px;border-radius:999px;background:rgba(255,255,255,.94);font-size:.75rem;font-weight:600;letter-spacing:.01em}
-.card__cat::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--dot)}
 .card__plus{position:absolute;right:10px;bottom:10px;width:42px;height:42px;border-radius:50%;background:var(--card);color:var(--ink);display:grid;place-items:center;font-size:20px;box-shadow:var(--shadow-1);transition:background .25s,color .25s,transform .35s var(--ease-spring)}
 .card__link:hover .card__media img{transform:scale(1.05)}
 .card__link:hover .card__plus{background:var(--ink);color:#fff;transform:rotate(90deg)}
@@ -209,32 +206,23 @@ input{caret-color:var(--sun-deep)}
 .card__price{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
 .card__meta{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:.85rem;color:var(--muted)}
 .card__meta i{width:12px;height:12px;border-radius:50%;background:var(--s);box-shadow:inset 0 0 0 1px rgba(20,20,20,.2)}
-.card__cta{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:.88rem;font-weight:600}
-.card__cta svg{transition:transform .3s var(--ease)}
-.card__link:hover .card__cta svg{transform:translateX(3px)}
 @media (max-width:700px){
   .card__row{flex-direction:column;gap:2px}
   .card__name{font-size:.95rem}
   .card__plus{width:38px;height:38px}
-  .card__cta{display:none}
 }
-.catalog__note{display:flex;align-items:start;gap:8px;margin-top:40px;font-size:.88rem;color:var(--muted);max-width:70ch}
-.catalog__note svg{font-size:18px;margin-top:1px}
+.catalog__note{margin-top:40px;font-size:.88rem;color:var(--muted);max-width:70ch}
 
 /* =========================================================
    BRAND BAND
    ========================================================= */
 .band{position:relative;overflow:hidden;isolation:isolate;max-width:calc(var(--maxw) - 2 * var(--gutter));margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:32px;padding:clamp(36px,6vw,72px);border-radius:var(--r-lg);background:#111;color:#fff}
 @media (max-width:1400px){.band{margin:0 var(--gutter)}}
-.band::before{content:"";position:absolute;right:-10%;top:-30%;width:60%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,194,14,.2),transparent 62%);z-index:-1}
 .band__title{font:700 clamp(2.2rem,4.8vw,3.8rem)/1.02 var(--display);letter-spacing:-.04em;text-wrap:balance}
-.kids-word b{color:var(--c);font-weight:700}
 .band__copy>p{margin-top:18px;max-width:40ch;color:rgba(255,255,255,.78);font-size:1.05rem}
-.band__addr{display:flex;gap:10px;margin-top:22px;font-style:normal;color:rgba(255,255,255,.9)}
-.band__addr svg{font-size:20px;margin-top:2px;color:var(--sun)}
+.band__addr{margin-top:22px;font-style:normal;color:rgba(255,255,255,.9)}
 .band__art{display:grid;place-items:center}
-.band__emblem{width:min(100%,340px);animation:float 7s ease-in-out infinite}
-@keyframes float{50%{translate:0 -10px;rotate:4deg}}
+.band__emblem{width:min(100%,340px)}
 @media (max-width:820px){.band{grid-template-columns:1fr}.band__art{order:-1;justify-items:start}.band__emblem{width:150px}}
 
 /* =========================================================
@@ -310,8 +298,7 @@ body.is-locked .wa-float{opacity:0;pointer-events:none}
 .pd__error:empty{display:none}
 .shake{animation:shake .42s}
 @keyframes shake{20%{translate:-7px 0}40%{translate:6px 0}60%{translate:-4px 0}80%{translate:2px 0}}
-.pd__stock{display:flex;align-items:start;gap:8px;margin-top:18px;font-size:.88rem;color:var(--muted)}
-.pd__stock svg{font-size:18px;margin-top:1px}
+.pd__stock{margin-top:18px;font-size:.88rem;color:var(--muted)}
 .pd__actions{display:flex;gap:10px;margin-top:auto;padding-top:26px}
 .qty{display:flex;align-items:center;height:52px;border-radius:999px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line-2)}
 .qty button{display:grid;place-items:center;width:46px;height:52px;font-size:18px;border-radius:999px}
@@ -380,7 +367,7 @@ body.is-locked .wa-float{opacity:0;pointer-events:none}
 .confetti{position:fixed;left:0;top:0;width:8px;height:8px;border-radius:2px;will-change:transform}
 
 /* ---------- reveal (solo con JS; sin JS todo es visible) ---------- */
-.js .reveal{opacity:0;translate:0 28px;transition:opacity .8s var(--ease),translate .9s var(--ease)}
+.js .reveal{opacity:0;translate:0 16px;transition:opacity .7s var(--ease),translate .8s var(--ease)}
 .js .reveal.is-in{opacity:1;translate:0 0}
 
 @media (prefers-reduced-motion:reduce){
